@@ -1402,20 +1402,29 @@ h1>span {
         background:var(--azul);
     }
     .hero {
+        display:flex;
+        flex-direction:column;
+        align-items:stretch;
         height:auto;
-        min-height:790px;
-        padding:135px 24px 100px;
+        min-height:auto;
+        padding:135px 24px 70px;
+        gap:32px;
+    }
+    .hero-content {
+        max-width:100%;
     }
     .hero-logo {
-        top:72px;
-        right:24px;
-        width:100px;
+        position:static;
+        align-self:center;
+        width:130px;
+        margin:0;
+        opacity:.55;
     }
     .score-card {
-        right:24px;
-        bottom:80px;
-        width:calc(100% - 48px);
-        transform:rotate(0);
+        position:relative;
+        width:100%;
+        margin:0;
+        transform:none;
     }
     .scroll-hint {
         display:none;
@@ -1503,22 +1512,18 @@ h1>span {
         padding:7px;
     }
     .hero {
-        min-height:735px;
-        padding:112px 18px 88px;
+        padding:112px 18px 60px;
+        gap:26px;
     }
     .hero-content {
         max-width:100%;
     }
     .hero-logo {
-        top:67px;
-        right:16px;
-        width:78px;
+        width:88px;
         opacity:.45;
     }
     .score-card {
-        right:18px;
-        bottom:52px;
-        width:calc(100% - 36px);
+        width:100%;
     }
     .section {
         padding:70px 18px;

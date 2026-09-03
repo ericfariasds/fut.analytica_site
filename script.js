@@ -69,6 +69,11 @@ if (secaoHero && efeitosDeMouseAtivos) {
     quadroAgendado = false;
     if (!ultimoPonteiro) return;
 
+    // Acima de 800px o hero usa posicionamento absoluto (layout com
+    // profundidade); abaixo disso os elementos ficam empilhados no
+    // fluxo normal, então o parallax é desligado para não deslocá-los.
+    if (window.innerWidth <= 800) return;
+
     const area = secaoHero.getBoundingClientRect();
     const posX = (ultimoPonteiro.clientX - area.left) / area.width - 0.5;
     const posY = (ultimoPonteiro.clientY - area.top) / area.height - 0.5;
@@ -98,7 +103,9 @@ if (secaoHero && efeitosDeMouseAtivos) {
     [orbUm, orbDois, logoHero].forEach((elemento) => {
       if (elemento) elemento.style.transform = '';
     });
-    if (cartaoDeScore) cartaoDeScore.style.transform = 'rotate(3deg)';
+    if (cartaoDeScore) {
+      cartaoDeScore.style.transform = window.innerWidth <= 800 ? '' : 'rotate(3deg)';
+    }
   });
 }
 
@@ -185,7 +192,7 @@ cartoesEquipe.forEach((cartao) => {
   });
 
   // O tilt atua no .member-photo (elemento pai), enquanto o flip de
-  // clique continua rodando no .photo-flip (filho) por isso os dois
+  // clique continua rodando no .photo-flip (filho) — por isso os dois
   // efeitos convivem sem disputar a mesma propriedade transform.
   if (efeitosDeMouseAtivos) {
     cartao.addEventListener('pointermove', (evento) => {
