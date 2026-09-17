@@ -109,7 +109,7 @@ if (secaoHero && efeitosDeMouseAtivos) {
   });
 }
 
-// Revela cada bloco suavemente quando ele entra na área visível da tela.
+// Revela cada bloco suavemente sempre que ele entra na área visível da tela.
 const elementosRevelaveis = document.querySelectorAll('.reveal');
 
 // Calcula um atraso escalonado (stagger) para elementos que dividem o
@@ -132,7 +132,8 @@ if ('IntersectionObserver' in window) {
     entradas.forEach((entrada) => {
       if (entrada.isIntersecting) {
         entrada.target.classList.add('visible');
-        observador.unobserve(entrada.target);
+      } else {
+        entrada.target.classList.remove('visible');
       }
     });
   }, { threshold: 0.12 });
@@ -142,13 +143,16 @@ if ('IntersectionObserver' in window) {
   elementosRevelaveis.forEach((elemento) => elemento.classList.add('visible'));
 }
 
-// Anima os números da seção de impacto apenas uma vez, sem alterar valores textuais como infinito.
-const animarNumero = (elemento) => {
+// Anima os números da seção de impacto sempre que ela volta à tela, sem alterar valores textuais como infinito.
+let cicloNumeros = 0;
+
+const animarNumero = (elemento, cicloAtual) => {
   const destino = Number(elemento.dataset.counter);
   const inicio = performance.now();
   const duracao = 1100;
 
   const atualizar = (agora) => {
+    if (cicloAtual !== cicloNumeros) return;
     const progresso = Math.min((agora - inicio) / duracao, 1);
     elemento.textContent = Math.floor(progresso * destino);
     if (progresso < 1) requestAnimationFrame(atualizar);
@@ -159,10 +163,17 @@ const animarNumero = (elemento) => {
 const secaoImpacto = document.querySelector('.stat-grid');
 if (secaoImpacto && 'IntersectionObserver' in window) {
   const observadorImpacto = new IntersectionObserver((entradas) => {
-    if (entradas[0].isIntersecting) {
-      document.querySelectorAll('[data-counter]').forEach(animarNumero);
-      observadorImpacto.disconnect();
-    }
+    entradas.forEach((entrada) => {
+      if (entrada.isIntersecting) {
+        cicloNumeros += 1;
+        document.querySelectorAll('[data-counter]').forEach((elemento) => animarNumero(elemento, cicloNumeros));
+      } else {
+        cicloNumeros += 1;
+        document.querySelectorAll('[data-counter]').forEach((elemento) => {
+          elemento.textContent = '0';
+        });
+      }
+    });
   }, { threshold: 0.45 });
 
   observadorImpacto.observe(secaoImpacto);

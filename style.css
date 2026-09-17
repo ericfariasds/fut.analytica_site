@@ -1063,18 +1063,46 @@ h1>span {
     margin-bottom:0;
 }
 
+.team-header {
+    display:grid;
+    grid-template-columns:1.2fr .8fr;
+    gap:clamp(32px,7vw,100px);
+    align-items:center;
+    margin-bottom:70px;
+}
+
 .team-intro {
     max-width:510px;
-    margin:32px 0 54px auto;
+    margin:0;
     color:var(--petroleo);
     font-size:16px;
     line-height:1.7;
+    text-align:center;
+}
+
+.team-group+.team-group {
+    margin-top:70px;
+}
+
+.team-group-title {
+    margin:0 0 28px;
+    color:var(--turquesa);
+    font:700 clamp(24px,2.4vw,34px) var(--interface);
+    letter-spacing:-.04em;
+    text-align:center;
 }
 
 .team-grid {
     display:grid;
     grid-template-columns:repeat(3,1fr);
     gap:24px;
+}
+
+.team-sales-grid {
+    grid-template-columns:repeat(2,1fr);
+    width:calc(66.6667% - 8px);
+    margin-right:auto;
+    margin-left:auto;
 }
 
 .team-member {
@@ -1197,6 +1225,28 @@ h1>span {
     color:var(--cinza);
     font-size:14px;
     text-align:left;
+}
+
+.placeholder-photo {
+    display:grid;
+    border:1px dashed rgba(44,68,96,.45);
+    background:linear-gradient(135deg,rgba(83,168,142,.16),rgba(78,138,141,.27));
+    color:var(--azul);
+    cursor:default;
+    place-items:center;
+}
+
+.placeholder-photo span {
+    padding:9px 13px;
+    border:1px solid rgba(44,68,96,.3);
+    border-radius:99px;
+    font:600 10px var(--interface);
+    letter-spacing:.08em;
+    text-transform:uppercase;
+}
+
+.team-member-placeholder:hover .placeholder-photo {
+    transform:none;
 }
 
 /* Encerramento e rodapé. */
@@ -1374,6 +1424,9 @@ h1>span {
     .team-grid {
         gap:16px;
     }
+    .team-sales-grid {
+        width:calc(66.6667% - 5.34px);
+    }
 }
 
 @media (max-width:800px) {
@@ -1429,7 +1482,7 @@ h1>span {
     .scroll-hint {
         display:none;
     }
-    .problem-layout,.method-intro,.dashboard-heading {
+    .problem-layout,.method-intro,.dashboard-heading,.team-header {
         grid-template-columns:1fr;
     }
     .method-intro .section-label,.method-intro h2,.method-intro p {
@@ -1487,6 +1540,9 @@ h1>span {
     }
     .team-grid {
         grid-template-columns:repeat(2,1fr);
+    }
+    .team-sales-grid {
+        width:100%;
     }
     .footer {
         flex-direction:column;
@@ -1578,7 +1634,7 @@ h1>span {
     .analysis-item h3 {
         font-size:19px;
     }
-    .pipeline,.team-grid {
+    .pipeline,.team-grid,.team-sales-grid {
         grid-template-columns:1fr;
     }
     .pipeline-step {

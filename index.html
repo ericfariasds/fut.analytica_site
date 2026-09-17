@@ -179,7 +179,7 @@
       <div class="powerbi-frame reveal">
         <iframe
           title="Dashboard Fut.Analytica no Power BI"
-          src="https://app.powerbi.com/groups/me/reports/5fc4a279-ce64-409e-be6a-a28d63bd5079?ctid=bd697c1b-c481-479c-841e-c618542675c3&amp;pbi_source=linkShare"
+          src="https://app.powerbi.com/reportEmbed?reportId=5fc4a279-ce64-409e-be6a-a28d63bd5079&amp;groupId=me&amp;ctid=bd697c1b-c481-479c-841e-c618542675c3"
           loading="lazy"
           allow="fullscreen"
           allowfullscreen
@@ -188,19 +188,22 @@
         <div class="frame-fallback">
           <img src="assets/logo-fut-analytica.png" alt="">
           <p>Seu dashboard interativo está pronto para ser exibido aqui.</p>
-          <a href="https://app.powerbi.com/groups/me/reports/5fc4a279-ce64-409e-be6a-a28d63bd5079?ctid=bd697c1b-c481-479c-841e-c618542675c3&amp;pbi_source=linkShare" target="_blank" rel="noopener">Abrir no Power BI <span>↗</span></a>
+          <a href="https://app.powerbi.com/reportEmbed?reportId=5fc4a279-ce64-409e-be6a-a28d63bd5079" target="_blank" rel="noopener">Abrir no Power BI <span>↗</span></a>
         </div>
       </div>
     </section>
 
     <!-- Seção para apresentar os integrantes responsáveis pelo projeto -->
     <section class="team section" id="equipe">
-      <div class="team-heading">
-
-        <h2 class="reveal">Uma equipe que joga<br><em>com dados e propósito.</em></h2>
+      <div class="team-header">
+        <div class="team-heading">
+          <h2 class="reveal">Uma equipe que joga<br><em>com dados e propósito.</em></h2>
+        </div>
+        <p class="team-intro reveal">Conheça as pessoas que transformam dados esportivos em leituras relevantes para clubes, marcas e torcedores. Toque em uma foto para ver o LinkedIn.</p>
       </div>
-      <p class="team-intro reveal">Conheça as pessoas que transformam dados esportivos em leituras relevantes para clubes, marcas e torcedores. Toque em uma foto para ver o LinkedIn.</p>
-      <div class="team-grid">
+      <section class="team-group" aria-labelledby="equipe-dados">
+        <h3 class="team-group-title reveal" id="equipe-dados">Equipe de Dados</h3>
+        <div class="team-grid">
         <!-- Foto e identificação de Caio -->
         <article class="team-member reveal">
           <div class="member-photo" tabindex="0" role="button" aria-pressed="false" aria-label="Toque para ver o QR code do LinkedIn de Caio">
@@ -303,7 +306,23 @@
           </div>
           <h3>Tassia</h3><p>Pesquisa e estratégia</p>
         </article>
-      </div>
+        </div>
+      </section>
+
+      <section class="team-group" aria-labelledby="equipe-vendas">
+        <h3 class="team-group-title reveal" id="equipe-vendas">Equipe de Vendas</h3>
+        <div class="team-grid team-sales-grid">
+          <!-- Espaços reservados para novos integrantes da equipe de vendas -->
+          <article class="team-member team-member-placeholder reveal" aria-label="Espaço reservado para integrante da equipe de vendas">
+            <div class="member-photo placeholder-photo" aria-hidden="true"><span>Em breve</span></div>
+            <h3>Novo integrante</h3><p>Equipe de vendas</p>
+          </article>
+          <article class="team-member team-member-placeholder reveal" aria-label="Espaço reservado para integrante da equipe de vendas">
+            <div class="member-photo placeholder-photo" aria-hidden="true"><span>Em breve</span></div>
+            <h3>Novo integrante</h3><p>Equipe de vendas</p>
+          </article>
+        </div>
+      </section>
     </section>
 
     <!-- Encerramento e chamada para contato -->
