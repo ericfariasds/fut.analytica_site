@@ -186,6 +186,7 @@ if (secaoImpacto && 'IntersectionObserver' in window) {
 // Vira o cartão de cada integrante ao clicar (ou usar Enter/Espaço) na foto,
 // revelando o espaço reservado para o QR code do LinkedIn.
 const cartoesEquipe = document.querySelectorAll('.member-photo');
+const botoesLinkedin = document.querySelectorAll('.member-linkedin-hint');
 
 const alternarCartao = (cartao) => {
   const virado = cartao.classList.toggle('flipped');
@@ -217,4 +218,12 @@ cartoesEquipe.forEach((cartao) => {
       cartao.style.transform = '';
     });
   }
+});
+
+// A chamada ao LinkedIn em cada cartão oferece a mesma interação da foto.
+botoesLinkedin.forEach((botao) => {
+  botao.addEventListener('click', () => {
+    const cartao = botao.closest('.team-member')?.querySelector('.member-photo');
+    if (cartao) alternarCartao(cartao);
+  });
 });

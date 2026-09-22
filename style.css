@@ -1189,8 +1189,10 @@ h1>span {
 .qr-slot {
     width:100%;
     display: flex;
+    flex-direction:column;
     justify-content: center;
     align-items: center;
+    gap:12px;
     overflow: hidden;
     aspect-ratio:1;
     border:2px dashed rgba(255,255,255,.5);
@@ -1204,6 +1206,28 @@ h1>span {
     max-width: 100%;
     object-fit: contain;
     display: block;
+}
+
+.linkedin-handle {
+    max-width:calc(100% - 28px);
+    overflow:hidden;
+    color:var(--branco);
+    font:700 11px/1.2 var(--interface);
+    letter-spacing:.01em;
+    text-align:center;
+    text-decoration:none;
+    text-overflow:ellipsis;
+    white-space:nowrap;
+}
+
+.linkedin-handle:hover {
+    color:#a9e1d0;
+    text-decoration:underline;
+}
+
+.linkedin-handle:focus-visible {
+    outline:2px solid var(--verde);
+    outline-offset:3px;
 }
 
 .flip-phrase {
@@ -1225,6 +1249,54 @@ h1>span {
     color:var(--cinza);
     font-size:14px;
     text-align:left;
+}
+
+.member-info {
+    display:grid;
+    grid-template-columns:minmax(0, 1fr) auto;
+    gap:14px;
+    align-items:center;
+}
+
+.member-linkedin-hint {
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:7px;
+    max-width:185px;
+    padding:9px 11px;
+    border:1px solid rgba(83,168,142,.58);
+    border-radius:7px;
+    color:var(--azul);
+    background:var(--branco);
+    box-shadow:0 5px 14px rgba(44,68,96,.08);
+    cursor:pointer;
+    font:700 10px/1.25 var(--interface);
+    text-align:left;
+    transition:background .2s ease, box-shadow .2s ease, transform .2s ease;
+}
+
+.member-linkedin-hint:hover {
+    background:rgba(83,168,142,.10);
+    box-shadow:0 7px 16px rgba(44,68,96,.13);
+    transform:translateY(-1px);
+}
+
+.member-linkedin-hint:focus-visible {
+    outline:2px solid var(--verde);
+    outline-offset:3px;
+}
+
+.member-linkedin-hint > span {
+    display:grid;
+    flex:0 0 auto;
+    width:19px;
+    height:19px;
+    place-items:center;
+    border-radius:3px;
+    color:var(--branco);
+    background:#0a66c2;
+    font:800 12px/1 var(--texto);
 }
 
 .placeholder-photo {
